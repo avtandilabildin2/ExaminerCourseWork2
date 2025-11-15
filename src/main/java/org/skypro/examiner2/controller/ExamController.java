@@ -1,8 +1,8 @@
 package org.skypro.examiner2.controller;
 
 import lombok.RequiredArgsConstructor;
-import org.skypro.examiner.entity.Question;
-import org.skypro.examiner.service.ExaminerService;
+import org.skypro.examiner2.entity.Question;
+import org.skypro.examiner2.service.ExaminerService;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
