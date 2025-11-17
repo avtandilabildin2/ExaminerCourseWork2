@@ -11,10 +11,10 @@ import org.springframework.web.bind.annotation.*;
 public class JavaController {
     private final QuestionService questionService;
     @PostMapping("/add")
-    public Question addQuestion(String question, String answer){
+    public Question addQuestion(@RequestParam String question,@RequestParam String answer){
         return questionService.add(question,answer);
     }
-    @GetMapping("/get-all")
+    @GetMapping
     public Iterable<Question> getAllQuestions(){
         return questionService.getAll();
     }

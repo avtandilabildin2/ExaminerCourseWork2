@@ -2,6 +2,7 @@ package org.skypro.examiner2.service.impl;
 
 import lombok.RequiredArgsConstructor;
 import org.skypro.examiner2.entity.Question;
+import org.skypro.examiner2.exeption.NotEnoughQuestionsException;
 import org.skypro.examiner2.service.ExaminerService;
 import org.skypro.examiner2.service.QuestionService;
 import org.springframework.http.HttpStatus;
@@ -21,10 +22,7 @@ public class ExaminerServiceImpl implements ExaminerService {
         int total = questionService.getAll().size();
 
         if (amount > total) {
-            throw new ResponseStatusException(
-                    HttpStatus.BAD_REQUEST,
-                    "Requested more questions than available"
-            );
+            throw new NotEnoughQuestionsException("Requested amount exceeds available questions");
         }
 
         Set<Question> result = new HashSet<>();
